@@ -18,16 +18,17 @@ body{
     background: var(--clr);
 }
 .navigation{
-    position: relative;
+   
     width: 400px;
     height: 70px;
     background:#fff;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
 }
-ul{
+.navigation ul{
     display: flex;
     list-style: none;
     width: 350px;
@@ -35,7 +36,14 @@ ul{
     z-index: 1;
     
 }
-a{
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navigation ul li a{
     position: relative;
     display: flex;
     justify-content: center;
@@ -44,6 +52,7 @@ a{
     width: 100%;
     text-align: center;
     font-weight: 500;
+    font-size: 22px;
 }
 .navigation ul li a .icon{
     position: relative;
@@ -53,8 +62,8 @@ a{
     transition: 0.5s;
     color: var(--clr);
 }
-.navigation ul li:hover a .icon{
-    transform: translateY(-35px);
+.navigation ul li.active  a .icon{
+    transform: translateY(-32px);
 }
 .navigation ul li a .text{
     position: absolute;
@@ -63,9 +72,44 @@ a{
     font-size: 0.75em;
     letter-spacing: 0.05em;
     transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+    
 }
-/* .navigation ul li:hover a .text{
+.navigation ul li.active a .text{
     opacity: 1;
     
-} */
+}
+.indicator{
+    top: -50px;
+    position: absolute;
+    width:70px;
+    height: 70px;
+    background: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: 0.5s;
+}
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -2.px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius:20px ;
+    box-shadow: 0px -10px 0 0 var(--clr);
+}
 
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius:20px ;
+    box-shadow: 0px -10px 0 0 var(--clr);
+}
